@@ -4,8 +4,8 @@ io/ConsoleIO.java
  io.ConsoleIO
 studygroup/Location.java
  studygroup.Location
-locale/StudyGroupBundle.java
- locale.StudyGroupBundle
+studygroup/Request.java
+ studygroup.Request
 commands/StudyGroupCommand.java
  commands.StudyGroupCommand
 studygroup/StudygroupBuilder.java
@@ -16,8 +16,8 @@ studygroup/Country.java
  studygroup.Country
 studygroup/EnumComparator.java
  studygroup.EnumComparator
-studygroup/StudyGroup.java
- studygroup.StudyGroup
+locale/StudyGroupBundle.java
+ locale.StudyGroupBundle
 studygroup/FormOfEducation.java
  studygroup.FormOfEducation
 studygroup/Person.java
@@ -42,5 +42,5 @@ commands/AbstractCommand.java
  commands.AbstractCommand
 exception/InvalidArgumentException.java
  exception.InvalidArgumentException
-studygroup/Request.java
- studygroup.Request
+studygroup/StudyGroup.java
+ studygroup.StudyGroup

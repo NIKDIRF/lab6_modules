@@ -1,0 +1,48 @@
+110  [main] INFO  log.Log - Hello, world!
+390  [main] INFO  log.Log - Открыт канал на порте 7182
+63088 [main] INFO  log.Log - Соединен с клиентом по адресу /127.0.0.1:54028
+63095 [main] INFO  log.Log - Десериализация запроса
+63100 [main] INFO  log.Log - Получен запрос
+63100 [main] INFO  log.Log - Обработка запроса
+63100 [main] INFO  log.Log - Клиент спрашивает, нужен ли объект коллекции для обработки этой команды
+63100 [main] INFO  log.Log - Формирование запроса с отрицательным ответом
+63100 [main] INFO  log.Log - Отправка запроса
+63100 [main] INFO  log.Log - Сериализация ответа
+63102 [main] INFO  log.Log - Запрос отправлен
+63102 [main] INFO  log.Log - Request{commandName='show', studygroup=null}
+63104 [main] INFO  log.Log - Открыт канал на порте 7182
+63139 [main] INFO  log.Log - Соединен с клиентом по адресу /127.0.0.1:54031
+63140 [main] INFO  log.Log - Десериализация запроса
+63140 [main] INFO  log.Log - Получен запрос
+63140 [main] INFO  log.Log - Обработка запроса
+63140 [main] INFO  log.Log - Попытка обработать команду show
+63145 [main] INFO  log.Log - Отправка запроса
+63145 [main] INFO  log.Log - Сериализация ответа
+63146 [main] INFO  log.Log - Запрос отправлен
+63146 [main] INFO  log.Log - Request{commandName='show', studygroup=null}
+63147 [main] INFO  log.Log - Открыт канал на порте 7182
+68667 [main] INFO  log.Log - Соединен с клиентом по адресу /127.0.0.1:54040
+68668 [main] INFO  log.Log - Десериализация запроса
+68668 [main] INFO  log.Log - Получен запрос
+68668 [main] INFO  log.Log - Обработка запроса
+68668 [main] INFO  log.Log - Клиент спрашивает, нужен ли объект коллекции для обработки этой команды
+68668 [main] INFO  log.Log - Формирование запроса с положительным ответом
+68668 [main] INFO  log.Log - Отправка запроса
+68668 [main] INFO  log.Log - Сериализация ответа
+68668 [main] INFO  log.Log - Запрос отправлен
+68668 [main] INFO  log.Log - Request{commandName='add', studygroup=null}
+68669 [main] INFO  log.Log - Открыт канал на порте 7182
+69170 [main] INFO  log.Log - Соединен с клиентом по адресу /127.0.0.1:54041
+192082 [main] ERROR log.Log - error
+java.io.IOException: Удаленный хост принудительно разорвал существующее подключение
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at request.RequestReaderImpl.readBytes(RequestReaderImpl.java:37)
+	at request.RequestReaderImpl.getRequest(RequestReaderImpl.java:22)
+	at server.Application.start(Application.java:64)
+	at server.Server.main(Server.java:11)
+192084 [main] INFO  log.Log - Открыт канал на порте 7182
+95   [main] ERROR log.Log - Expected arguments: port file_name

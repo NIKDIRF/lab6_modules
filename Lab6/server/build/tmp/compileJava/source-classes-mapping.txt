@@ -2,14 +2,14 @@ file/StudyGroupReader.java
  file.StudyGroupReader
 connection/ConnectionListener.java
  connection.ConnectionListener
-file/StudyGroupWriter.java
- file.StudyGroupWriter
-command/PrintAscendingCommand.java
- command.PrintAscendingCommand
+command/HistoryCommand.java
+ command.HistoryCommand
+command/CommandInvoker.java
+ command.CommandInvoker
 command/InfoCommand.java
  command.InfoCommand
-connection/ConnectionListenerImpl.java
- connection.ConnectionListenerImpl
+command/AddCommand.java
+ command.AddCommand
 command/CommandHistory.java
  command.CommandHistory
 command/SaveCommand.java
@@ -39,8 +39,8 @@ command/RemoveLowerCommand.java
 file/JSONReader.java
  file.JSONReader
  file.JSONReader$1
-command/HelpCommand.java
- command.HelpCommand
+request/RequestReader.java
+ request.RequestReader
 locale/ServerBundle.java
  locale.ServerBundle
 response/ResponseSender.java
@@ -51,29 +51,29 @@ command/PrintUniqueExpelledStudentsCommand.java
  command.PrintUniqueExpelledStudentsCommand
 command/AddIfMaxCommand.java
  command.AddIfMaxCommand
-command/AddCommand.java
- command.AddCommand
+request/RequestReaderImpl.java
+ request.RequestReaderImpl
 response/Creator.java
  response.Creator
-command/CommandInvoker.java
- command.CommandInvoker
+command/ClearCommand.java
+ command.ClearCommand
 collection/CollectionControl.java
  collection.CollectionControl
 command/ServerCommand.java
  command.ServerCommand
 log/Log.java
  log.Log
-command/HistoryCommand.java
- command.HistoryCommand
-command/ClearCommand.java
- command.ClearCommand
-request/RequestReaderImpl.java
- request.RequestReaderImpl
 request/RequestHandler.java
  request.RequestHandler
-request/RequestReader.java
- request.RequestReader
-server/Application.java
- server.Application
 request/RequestHandlerImpl.java
  request.RequestHandlerImpl
+command/PrintAscendingCommand.java
+ command.PrintAscendingCommand
+file/StudyGroupWriter.java
+ file.StudyGroupWriter
+connection/ConnectionListenerImpl.java
+ connection.ConnectionListenerImpl
+command/HelpCommand.java
+ command.HelpCommand
+server/Application.java
+ server.Application
