@@ -1,0 +1,34 @@
+commands/CommandInvoker.java
+ commands.CommandInvoker
+connection/ConnectionManagerImpl.java
+ connection.ConnectionManagerImpl
+io/Reader.java
+ io.Reader
+commands/ClientHelpCommand.java
+ commands.ClientHelpCommand
+io/StudygroupScriptParser.java
+ io.StudygroupScriptParser
+client/Main.java
+ client.Main
+response/ResponseReaderImpl.java
+ response.ResponseReaderImpl
+commands/ExecuteScriptCommand.java
+ commands.ExecuteScriptCommand
+response/ResponseReader.java
+ response.ResponseReader
+locale/ClientLocale.java
+ locale.ClientLocale
+connection/ConnectionManager.java
+ connection.ConnectionManager
+commands/ExitCommand.java
+ commands.ExitCommand
+io/StudygroupParser.java
+ io.StudygroupParser
+request/RequestSender.java
+ request.RequestSender
+request/RequestSenderImpl.java
+ request.RequestSenderImpl
+client/Application.java
+ client.Application
+request/RequestCreator.java
+ request.RequestCreator
