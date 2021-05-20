@@ -16,8 +16,8 @@ command/SaveCommand.java
  command.SaveCommand
 response/ResponseSenderImpl.java
  response.ResponseSenderImpl
-command/RemoveByIdCommand.java
- command.RemoveByIdCommand
+server/Application.java
+ server.Application
 command/RemoveGreaterCommand.java
  command.RemoveGreaterCommand
 command/UpdateCommand.java
@@ -39,8 +39,8 @@ command/RemoveLowerCommand.java
 file/JSONReader.java
  file.JSONReader
  file.JSONReader$1
-request/RequestReader.java
- request.RequestReader
+command/HelpCommand.java
+ command.HelpCommand
 locale/ServerBundle.java
  locale.ServerBundle
 response/ResponseSender.java
@@ -73,7 +73,7 @@ file/StudyGroupWriter.java
  file.StudyGroupWriter
 connection/ConnectionListenerImpl.java
  connection.ConnectionListenerImpl
-command/HelpCommand.java
- command.HelpCommand
-server/Application.java
- server.Application
+command/RemoveByIdCommand.java
+ command.RemoveByIdCommand
+request/RequestReader.java
+ request.RequestReader

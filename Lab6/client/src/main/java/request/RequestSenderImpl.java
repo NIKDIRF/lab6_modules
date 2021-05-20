@@ -11,11 +11,8 @@ import java.nio.channels.SocketChannel;
 public class RequestSenderImpl implements RequestSender{
     private OutputStream stream;
 
-    public void initOutputStream(SocketChannel socketChannel) throws IOException {
-        stream = socketChannel.socket().getOutputStream();
-    }
-
     public void sendRequest(SocketChannel socketChannel, Request request) throws IOException {
+        stream = socketChannel.socket().getOutputStream();
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
         ObjectOutputStream stream = new ObjectOutputStream(byteStream);
         stream.writeObject(request);

@@ -55,6 +55,12 @@ public class Application {
     }
 
     public void start() {
+        try {
+            connectionManager.openConnection(address, port);
+        } catch (IOException e) {
+            System.err.println("server is unavailable");
+            return;
+        }
         while(isRunning) {
             userIO.printUserPrompt();
             String userString = "";
@@ -72,17 +78,16 @@ public class Application {
                 } catch (EOFException eofe) {
                     userIO.printErrorMessage(ClientLocale.getString("exception.too_many_bytes"));
                 } catch (IOException | ClassNotFoundException ioe) {
-                    userIO.printErrorMessage(ClientLocale.getString("exception.general_network"));
-                    ioe.printStackTrace();
+                    userIO.printErrorMessage("server is unavailable, reconnecting");
+                    try {
+                        connectionManager.openConnection(address, port);
+                        userIO.printErrorMessage("successfully reconnected");
+                    } catch (IOException e) {
+                        userIO.printErrorMessage("failure, try again later");
+                    }
                 } catch (StudyGroupReadException | StudyGroupBuildException | IllegalStateException e) {
                     userIO.printErrorMessage(e.getMessage());
 
-                } finally {
-                    try {
-                        connectionManager.closeConnection();
-                    } catch (IOException ioe) {
-                        return;
-                    }
                 }
             }
         }
@@ -90,31 +95,25 @@ public class Application {
 
     public Response communicateWithServer(String userString, Reader routeReader) throws IOException, ClassNotFoundException,
             StudyGroupReadException, StudyGroupBuildException {
-        SocketChannel socketChannel = connectionManager.openConnection(address, port);
+        SocketChannel socketChannel = connectionManager.getConnection();
         Request request = requestCreator.createStudyGroupRequest(userString);
-        requestSender.initOutputStream(socketChannel);
         requestSender.sendRequest(socketChannel, request);
         Response response = reader.getResponse(socketChannel);
 
         if (!response.isSuccess())
             throw new IllegalStateException(response.getMessage());
 
-        connectionManager.closeConnection();
-        socketChannel = connectionManager.openConnection(address, port);
 
         if (response.isStudyGroupRequired()) {
             request.setStudyGroup(routeReader.read());
         }
 
         request.setType(RequestType.COMMAND_REQUEST);
-        requestSender.initOutputStream(socketChannel);
         requestSender.sendRequest(socketChannel, request);
         response = reader.getResponse(socketChannel);
 
         if (!response.isSuccess())
             throw new IllegalStateException(response.getMessage());
-
-        connectionManager.closeConnection();
 
         return response;
     }

@@ -52,27 +52,26 @@ public class Application {
         putCommands(commandInvoker, routeManager, creator, commandHistory);
         putServerCommands(commandInvoker, writer, connectionListener);
         consoleStart(commandInvoker);
+        try {
+            connectionListener.openConnection(address, port);
+            selector = connectionListener.listen();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+            return;
+        }
 
         while (isRunning) {
             try {
-                connectionListener.openConnection(address, port);
-                try {
-                    selector = connectionListener.listen();
-                } catch (ClosedSelectorException e){
-                    return;
-                }
                 Request request = requestReader.getRequest(selector);
                 log.Log.getLogger().info(ServerBundle.getString("server.got_request"));
                 try {
                     log.Log.getLogger().info(ServerBundle.getString("server.request_handling"));
                     Response response = requestHandler.handleRequest(request);
                     responseSender.sendResponse(selector, response);
-                    connectionListener.stop();
                 } catch (CommandNotFoundException | CommandExecutionException e) {
                     Log.getLogger().error("error", e);
                     Response response = new Response(e.getMessage(), false, false);
                     responseSender.sendResponse(selector, response);
-                    connectionListener.stop();
                 }
                 Log.getLogger().info(request.toString());
             } catch (IOException | ClassNotFoundException ioe) {
@@ -82,6 +81,14 @@ public class Application {
                 } catch (IOException e) {
                     Log.getLogger().error("error", e);
                     isRunning = false;
+                }
+            } catch (ClosedSelectorException e) {
+                try {
+                    connectionListener.stop();
+                    connectionListener.openConnection(address, port);
+                    selector = connectionListener.listen();
+                } catch (IOException ioe) {
+                    System.err.println(ioe.getMessage());
                 }
             }
         }

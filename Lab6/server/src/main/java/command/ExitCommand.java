@@ -26,6 +26,7 @@ public class ExitCommand implements ServerCommand {
         try {
             application.setIsRunning(false);
             connectionListener.stop();
+            System.exit(0);
         } catch (IOException ignored) {
 
         }
